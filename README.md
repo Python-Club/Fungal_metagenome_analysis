@@ -1,1 +1,1 @@
-# Fungal_metagenome_analysis
+Notes for fungal metagenome analysis using several different methods- QIIME, usearch, RDP. 
