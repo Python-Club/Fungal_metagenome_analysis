@@ -1,11 +1,6 @@
 ### USEARCH Wheat ITS 2016 Analysis ###
 
 
-
-### Move sequence files from HPCC to TLS ###
-scp gdanetzk@gateway.hpcc.msu.edu:/mnt/home/gdanetzk/Wheat_ITS/fastq_dir/wheat.ITS.fastq.gz /media/Data/Wheat_ITS/wheat.ITS.fastq.gz
-scp -P 3133 localfile klg5183@35.10.237.49:/media/Data/UNITE/ 
-
 ### merge read pairs ###
 usearch8.0.1623_i86linux32 -fastq_mergepairs *_R1_*.fastq -relabel @ -fastqout merged.fq
 
