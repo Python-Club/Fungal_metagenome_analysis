@@ -18,15 +18,6 @@ usearch -fastq_eestats2 merged.filtered.fastq -output eestats2.txt -length_cutof
 usearch -fastx_truncate wheat.its.merged/merged.filtered.fastq -padlen 380 -trunclen 380 -fastaout wheat.its.reads.fa
 
 
-
-
-### trim sequences using ITSx ###
-#ITSx -i reads.fasta -o reads -t all --preserve T --save_regions ITS2 --partial 99 --truncate T --multi_thread T --cpu 8
-
-ITSx -i merged/merged.filtered.fa -o trimmed.fa  -t all --date T --preserve T --save_regions ITS2 --partial 98 --truncate T
-
-
-
 ### find representivive sequences, create counts for number of each sequence ###
 #usearch8.0.1623_i86linux32 -derep_fulllength filtered.fa -relabel Uniq -sizeout -fastaout uniques.fa
 
@@ -57,7 +48,7 @@ usearch -usearch_global wheat.its.merged/merged.filtered.fastq -db wheat.its.rea
 
 ### taxonomy ###
 usearch -makeudb_utax /media/Data/UNITE/utaxref/fasta/refdb.fa -output /media/Data/UNITE/utaxref/ITS_refdb.udb -report /media/Data/UNITE/utaxref/reports/ITS_refdb_report.txt -utax_trainlevels kpcofgs -utax_splitlevels NVcofgs
-
+(follow [USEARCH instructions for training your own parameters](http://drive5.com/usearch/manual/utax_user_train.html) )
 usearch -utax wheat.its.merged/merged.filtered.fastq -db /media/Data/UNITE_db/utaxref/ITS_refdb.udb -taxconfs /media/Data/UNITE_db/utaxref/taxconfs/its2.tc -tt /media/Data/UNITE_db/utaxref/usearch.tt -utaxout wheat.its.taxonomy.results.txt -strand plus -fastaout wheat.its.taxonomy.results.fa -sizein -sizeout
 
 usearch -cluster_otus_utax wheat.its.merged/merged.filtered.fastq -db /media/Data/UNITE_db/utaxref/ITS_refdb.udb -utax_level g -otus merged.taxonomy.fa -strand plus -utaxotusout merged.taxonomy -utaxout merged.taxonomy.utax  
