@@ -48,7 +48,7 @@ usearch -usearch_global wheat.its.merged/merged.filtered.fastq -db wheat.its.rea
 
 ### taxonomy ###
 usearch -makeudb_utax /media/Data/UNITE/utaxref/fasta/refdb.fa -output /media/Data/UNITE/utaxref/ITS_refdb.udb -report /media/Data/UNITE/utaxref/reports/ITS_refdb_report.txt -utax_trainlevels kpcofgs -utax_splitlevels NVcofgs
-follow [USEARCH instructions for training your own parameters](http://drive5.com/usearch/manual/utax_user_train.html) 
+follow USEARCH instructions for training your own parameters (http://drive5.com/usearch/manual/utax_user_train.html) )
 usearch -utax wheat.its.merged/merged.filtered.fastq -db /media/Data/UNITE_db/utaxref/ITS_refdb.udb -taxconfs /media/Data/UNITE_db/utaxref/taxconfs/its2.tc -tt /media/Data/UNITE_db/utaxref/usearch.tt -utaxout wheat.its.taxonomy.results.txt -strand plus -fastaout wheat.its.taxonomy.results.fa -sizein -sizeout
 
 usearch -cluster_otus_utax wheat.its.merged/merged.filtered.fastq -db /media/Data/UNITE_db/utaxref/ITS_refdb.udb -utax_level g -otus merged.taxonomy.fa -strand plus -utaxotusout merged.taxonomy -utaxout merged.taxonomy.utax  
